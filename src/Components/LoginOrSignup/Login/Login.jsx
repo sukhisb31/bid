@@ -1,190 +1,99 @@
-import { NavLink } from "react-router-dom";
 
-const LoginForm = () => {
+
+
+
+
+
+// import React from 'react'
+import { Button } from "../../Button/Button";
+import "./Login.css";
+// import {LoginImg} from "../../images/login.webp"
+import { NavLink } from "react-router-dom";
+import "./Login.css"
+
+const Login = () => {
   return (
     <>
-      <section className="vh-100">
-        <div className="container-fluid h-custom">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-md-9 col-lg-6 col-xl-5">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                className="img-fluid"
-                alt="Login_img"
-              />
-            </div>
-            <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form>
-                <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                  <p className="lead fw-normal mb-0 me-3">Sign in with</p>
-                  <button
+    {/* <div className="container ">
+      <div className="container-fluid">
+        <div className="row d-flex justify-content-center align-items-center">
+         <div className="col-md-9 col-lg-6 col-xl-5">
+         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" alt="logginimg" 
+          className="img-fluid"/>
+         </div>
+        </div> */}
+        {/* <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form>
+            <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p className="lead fw-normal mb-0 me-3">Sign in With</p>
+              <button
                     type="button"
-                    data-mdb-button-init
-                    data-mdb-ripple-init
-                    className="btn btn-primary btn-floating mx-1"
+                   className="btn btn-primary "
                   >
-                    <i className="fab fa-facebook-f"></i>
+                    <i className="fa fa-facebook"></i> 
                   </button>
-
-                  <button
-                    type="button"
-                    data-mdb-button-init
-                    data-mdb-ripple-init
-                    className="btn btn-primary btn-floating mx-1"
-                  >
-                    <i className="fab fa-twitter"></i>
+                  <button type="button" className="btn btn-primary btn-floating mx-1">
+                  <i className="fab fa-linkedin-in"></i>
                   </button>
-
-                  <button
-                    type="button"
-                    data-mdb-button-init
-                    data-mdb-ripple-init
-                    className="btn btn-primary btn-floating mx-1"
-                  >
-                    <i className="fab fa-linkedin-in"></i>
-                  </button>
-                </div>
-
-                <div className="divider d-flex align-items-center my-4">
-                  <p className="text-center fw-bold mx-3 mb-0">Or</p>
-                </div>
-
-                {/* Email input  */}
-                <div data-mdb-input-init className="form-outline mb-4">
-                  <input
-                    type="email"
-                    id="form3Example3"
-                    className="form-control form-control-lg"
-                    placeholder="Enter a valid email address"
-                  />
-                  <label className="form-label" htmlFor="form3Example3">
-                    Email address
-                  </label>
-                </div>
-
-                {/*  Password input  */}
-                <div data-mdb-input-init className="form-outline mb-3">
-                  <input
-                    type="password"
-                    id="form3Example4"
-                    className="form-control form-control-lg"
-                    placeholder="Enter password"
-                  />
-                  <label className="form-label" htmlFor="form3Example4">
-                    Password
-                  </label>
-                </div>
-
-                <div className="d-flex justify-content-between align-items-center">
-                  {/* Checkbox  */}
-                  <div className="form-check mb-0">
-                    <input
-                      className="form-check-input me-2"
-                      type="checkbox"
-                      value=""
-                      id="form2Example3"
-                    />
-                    <label className="form-check-label" htmlFor="form2Example3">
-                      Remember me
-                    </label>
+                  <div className="divider d-flex align-items-center my-4">
+                    <p className="text-center fw-bold mx-3 mb-0"> Or</p>
+                  </div> */}
+                  {/* email */}
+                  {/* <div className="form-outline mb-4">
+                  <label htmlFor="email" className="form-label">Email</label>
+                    <input type="email" id="formEmail" className="form-control from-control-lg" placeholder="Enter Valid Email" />
+                    
+                  </div> */}
+                  {/* password */}
+                  {/* <div>
+                  <label htmlFor="password" className="form-label">Password</label>
+                    <input type="password" className="form-control form-control-lg" placeholder="Enter Password" />
+                     */}
+                   
+                  {/* </div>
+                  <div className="d-flex justify-content-between align-items-center">
+                    {/* checkbox */}
+                    {/* <div className="form-check mb-0">
+                      <input type="checkbox" value="" className="form-check-input me-2" />
+                      <label htmlFor="check" className="form-check-label">
+                        Remember me
+                      </label> */} 
+                    {/* </div>
+                    <NavLink className="text-body">Forgot Password</NavLink>
                   </div>
-                  <a href="#!" className="text-body">
-                    Forgot password?
-                  </a>
-                </div>
-
-                <div className="text-center text-lg-start mt-4 pt-2">
-                  <button
-                    type="button"
-                    data-mdb-button-init
-                    data-mdb-ripple-init
-                    className="btn btn-primary btn-lg"
-                    style="padding-left: 2.5rem; padding-right: 2.5rem;"
-                  >
-                    Login
-                  </button>
-                  <p className="small fw-bold mt-2 pt-1 mb-0">
-                    Don&apos;t have an account?{" "}
-                    <NavLink to="" className="link-danger">
-                      Register
-                    </NavLink>
-                  </p>
-                </div>
-              </form>
             </div>
-          </div>
+          </form>
         </div>
-        <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-          {/*  Copyright  */}
-          <div className="text-white mb-3 mb-md-0">
-            Copyright © 2020. All rights reserved.
-          </div>
-          {/*  Copyright  */}
-
-          {/*  Right  */}
-          <div>
-            <a href="#!" className="text-white me-4">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#!" className="text-white me-4">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#!" className="text-white me-4">
-              <i className="fab fa-google"></i>
-            </a>
-            <a href="#!" className="text-white">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-          {/*  Right  */}
+      </div>
+    </div> */}
+      <div className="container">
+        <div className="login_form">
+          <h1 className="login">Login</h1>
+          <form action="Login">
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label d-flex">
+                UserName or Email
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="email or password"
+              />
+              <br />
+              <label htmlFor="password">Password</label>
+              <input type="password" className="form-control" />
+            </div>
+            <Button>Login</Button>
+            <br /><br />
+            <div className="d-flex justify-content-between ">
+              <NavLink to="/signup">SignUp</NavLink>
+              <NavLink to="forget">Forget Password</NavLink>
+            </div>
+          </form>
         </div>
-      </section>
+      </div>
     </>
   );
 };
 
-export default LoginForm;
-
-
-
-
-
-// // import React from 'react'
-// import { Button } from "../../Button/Button";
-// import "./Login.css";
-// import { NavLink } from "react-router-dom";
-
-// const Login = () => {
-//   return (
-//     <>
-//       <div className="container">
-//         <div className="login_form">
-//           <h1 className="login">Login</h1>
-//           <form action="Login">
-//             <div className="mb-3">
-//               <label htmlFor="email" className="form-label d-flex">
-//                 UserName or Email
-//               </label>
-//               <input
-//                 type="email"
-//                 className="form-control"
-//                 id="email or password"
-//               />
-//               <br />
-//               <label htmlFor="password">Password</label>
-//               <input type="password" className="form-control" />
-//             </div>
-//             <Button>Login</Button>
-//             <br /><br />
-//             <div className="d-flex justify-content-between ">
-//               <NavLink to="/signup">SignUp</NavLink>
-//               <NavLink to="forget">Forget Password</NavLink>
-//             </div>
-//           </form>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Login;
+export default Login;

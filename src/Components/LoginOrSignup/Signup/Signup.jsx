@@ -1,18 +1,21 @@
 import "./Signup.css";
-
+import { NavLink } from "react-router-dom";
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 const Signup = () => {
   return (
     <>
       <div className="container">
-        <section className="vh-100">
+        <section className="">
           <div className="container h-100">
-            <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="row d-flex justify-content-center align-items-center">
               <div className="col-lg-12 col-xl-11">
                 <div
                   className="card text-black"
                   style={{ borderRadius: "25px" }}
                 >
-                  <div className="card-body p-md-5">
+                  <div className="card-body" style={{ height: "100vh" }}>
                     <div className="row justify-content-center">
                       <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                         <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
@@ -23,40 +26,35 @@ const Signup = () => {
                           <div className="d-flex flex-row align-items-center mb-4">
                             <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div
-                              data-mdb-input-init
+                              // data-mdb-input-init
                               className="form-outline flex-fill mb-0"
                             >
-                              <input
-                                type="text"
-                                id="form3Example1c"
-                                className="form-control"
-                              />
-                              <label
-                                className="form-label"
-                                htmlFor="form3Example1c"
-                              >
+                              <label className="form-label" htmlFor="name">
                                 Your Name
                               </label>
+
+                              <input
+                                type="text"
+                                id="name"
+                                className="form-control"
+                              />
                             </div>
                           </div>
 
                           <div className="d-flex flex-row align-items-center mb-4">
                             <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div
-                              data-mdb-input-init
+                              // data-mdb-input-init
                               className="form-outline flex-fill mb-0"
                             >
-                              <input
-                                type="email"
-                                id="form3Example3c"
-                                className="form-control"
-                              />
-                              <label
-                                className="form-label"
-                                htmlFor="form3Example3c"
-                              >
+                              <label className="form-label" htmlFor="email">
                                 Your Email
                               </label>
+                              <input
+                                type="email"
+                                id="email"
+                                className="form-control"
+                              />
                             </div>
                           </div>
 
@@ -66,17 +64,14 @@ const Signup = () => {
                               data-mdb-input-init
                               className="form-outline flex-fill mb-0"
                             >
+                              <label className="form-label" htmlFor="password">
+                                Password :
+                              </label>
                               <input
                                 type="password"
-                                id="form3Example4c"
+                                id="password"
                                 className="form-control"
                               />
-                              <label
-                                className="form-label"
-                                htmlFor="form3Example4c"
-                              >
-                                Password
-                              </label>
                             </div>
                           </div>
 
@@ -86,17 +81,14 @@ const Signup = () => {
                               data-mdb-input-init
                               className="form-outline flex-fill mb-0"
                             >
+                              <label className="form-label" htmlFor="password">
+                                Repeat your password :
+                              </label>
                               <input
                                 type="password"
-                                id="form3Example4cd"
+                                id="password"
                                 className="form-control"
                               />
-                              <label
-                                className="form-label"
-                                htmlFor="form3Example4cd"
-                              >
-                                Repeat your password
-                              </label>
                             </div>
                           </div>
 
@@ -105,14 +97,14 @@ const Signup = () => {
                               className="form-check-input me-2"
                               type="checkbox"
                               value=""
-                              id="form2Example3c"
+                              id="checkbox"
                             />
                             <label
                               className="form-check-label"
-                              htmlFor="form2Example3"
+                              htmlFor="checkbox"
                             >
                               I agree all statements in{" "}
-                              <a href="#!">Terms of service</a>
+                              <NavLink to="">Terms of service</NavLink>
                             </label>
                           </div>
 
@@ -128,12 +120,41 @@ const Signup = () => {
                           </div>
                         </form>
                       </div>
-                      <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                      <div
+                        className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 mt-5"
+                        style={{ flexDirection: "column" }}
+                      >
                         <img
                           src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                           className="img-fluid"
-                          alt="Sample image"
+                          alt="Signup_img"
                         />
+                        {/* another option to signup  */}
+                        <div className="text-center mt-5">
+                          <p>
+                            Not a member? <NavLink to="/login">Login</NavLink>
+                          </p>
+                          <p>or sign up with:</p>
+                          {/* icon */}
+                          <button
+                            type="button"
+                            className="btn btn-link btn-floating mx-1"
+                          >
+                            <FaFacebookF />
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-link btn-floating mx-1"
+                          >
+                            <FaTwitter />
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-link btn-floating mx-1"
+                          >
+                            <FaGoogle />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
