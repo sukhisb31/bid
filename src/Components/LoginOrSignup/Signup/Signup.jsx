@@ -1,9 +1,70 @@
 import "./Signup.css";
 import { NavLink } from "react-router-dom";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
+import { useState } from "react";
 const Signup = () => {
+  const initialValue = {
+    name :"",
+    email :"",
+    password : "",
+    confirmPassword : "",
+    termsAccepted : false
+  }
+  const [formData, setFormData] = useState(initialValue);
+  const [error, setError] = useState({});
+
+  const validation = () =>{
+    let errors = {};
+    
+    if (!formData.name.trim()) errors.name = "Name is required";
+    if (!formData.email.trim()) {
+      errors.email = "required Email"
+    }
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Invalid email format"
+    }
+
+    if (!formData.password) {
+      errors.password = "password is required"
+    }
+    else if (formData.password.length < 6){
+      errors.password = "Password must be at least 6 character or more"
+    }
+
+    if(!formData.confirmPassword){
+      errors.confirmPassword = "Confirm Password is required"
+    }
+    else if (formData.confirmPassword !== formData.password){
+      errors.confirmPassword = "Password do not match"
+    }
+    if (!formData.termsAccepted) {
+      errors.termsAccepted = "You must accept the terms and conditions";
+    }
+    setError(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+// Handle Submit
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    if(validation()){
+      // console.log("Form Submitted Successfully", formData);
+      alert("Form Submit Successfully");
+    }
+      
+    }
+
+
+  // handle change
+  const handleChange = (e) =>{
+    setFormData({...formData, [e.target.name]: e.target.value});
+  };
+  
+  
+
+// // submit
+
+ 
   return (
     <>
       <div className="container">
@@ -22,46 +83,51 @@ const Signup = () => {
                           Sign up
                         </p>
 
-                        <form className="mx-1 mx-md-4">
-                          <div className="d-flex flex-row align-items-center mb-4">
+                        <form className="mx-1 mx-md-4" >
+                          <div className="d-flex flex-row align-items-center mb-3">
                             <i className="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div
-                              // data-mdb-input-init
                               className="form-outline flex-fill mb-0"
                             >
-                              <label className="form-label" htmlFor="name">
-                                Your Name
+                              <label className="form-label"  htmlFor="name">
+                                Your Name :
                               </label>
 
                               <input
                                 type="text"
                                 id="name"
                                 className="form-control"
+                                 value={formData.name}
+                                onChange={handleChange}
+                                name="name"
                               />
+                              {error.name && <span className="text-danger">{error.name}</span>}
                             </div>
                           </div>
 
-                          <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="d-flex flex-row align-items-center mb-3">
                             <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
                             <div
-                              // data-mdb-input-init
                               className="form-outline flex-fill mb-0"
                             >
                               <label className="form-label" htmlFor="email">
-                                Your Email
+                                Your Email :
                               </label>
                               <input
                                 type="email"
                                 id="email"
                                 className="form-control"
+                                value={formData.email}
+                                name="email"
+                                onChange={handleChange}
                               />
+                              {error.email && <span className="text-danger">{error.email}</span>}
                             </div>
                           </div>
 
-                          <div className="d-flex flex-row align-items-center mb-4">
+                          <div className="d-flex flex-row align-items-center mb-3">
                             <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div
-                              data-mdb-input-init
                               className="form-outline flex-fill mb-0"
                             >
                               <label className="form-label" htmlFor="password">
@@ -71,7 +137,11 @@ const Signup = () => {
                                 type="password"
                                 id="password"
                                 className="form-control"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
                               />
+                              {error.password && <span className="text-danger">{error.password}</span>}
                             </div>
                           </div>
 
@@ -82,22 +152,27 @@ const Signup = () => {
                               className="form-outline flex-fill mb-0"
                             >
                               <label className="form-label" htmlFor="password">
-                                Repeat your password :
+                                Confirm password :
                               </label>
                               <input
                                 type="password"
                                 id="password"
                                 className="form-control"
+                                name="confirmPassword"
+                                value={formData.confirmPassword}
+                                onChange={handleChange}
                               />
+                              {error.confirmPassword && <span className="text-danger">{error.confirmPassword}</span>}
                             </div>
                           </div>
 
-                          <div className="form-check d-flex justify-content-center mb-5">
+                          <div className="form-check d-flex justify-content-center mb-3">
                             <input
                               className="form-check-input me-2"
                               type="checkbox"
                               value=""
                               id="checkbox"
+                              onChange={(e) => setFormData({ ...formData, termsAccepted: e.target.checked })}
                             />
                             <label
                               className="form-check-label"
@@ -107,13 +182,13 @@ const Signup = () => {
                               <NavLink to="">Terms of service</NavLink>
                             </label>
                           </div>
+                          {error.termsAccepted && <span className="text-danger d-flex justify-content-center mb-3">{error.termsAccepted}</span>}
 
-                          <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <div className="d-flex justify-content-center text-align-center mx-4 mb-3 mb-lg-4">
                             <button
                               type="button"
-                              data-mdb-button-init
-                              data-mdb-ripple-init
                               className="btn btn-primary btn-lg"
+                              onClick={handleSubmit}
                             >
                               Register
                             </button>
@@ -121,16 +196,16 @@ const Signup = () => {
                         </form>
                       </div>
                       <div
-                        className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2 mt-5"
-                        style={{ flexDirection: "column" }}
+                        className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2  "
+                        style={{ flexDirection: "column", width:"450px" }}
                       >
                         <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                          src="https://img.freepik.com/free-vector/attached-files-concept-illustration_114360-4417.jpg?t=st=1738316224~exp=1738319824~hmac=f6b1884f748f916aa8a370545a25160dd1e8a0e4125a1f5a422ed61de66fc801&w=740"
                           className="img-fluid"
                           alt="Signup_img"
                         />
                         {/* another option to signup  */}
-                        <div className="text-center mt-5">
+                        <div className="text-center ">
                           <p>
                             Not a member? <NavLink to="/login">Login</NavLink>
                           </p>

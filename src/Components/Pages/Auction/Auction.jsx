@@ -2,9 +2,11 @@
 
 const Auction = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+          <div className="container">
+                <h1>Auction</h1>
+            </div>  
+        </>
     )
 }
 

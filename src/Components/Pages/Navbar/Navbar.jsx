@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <>
             <div className="container">
-                <nav className="navbar navbar-expand-lg py-4">
+                <nav className="navbar navbar-expand-lg py-4" >
                     <div className="container-fluid">
                         {/* Left-Items */}
                         <div className="d-flex text-light text-decoration-none ms-4 ">
