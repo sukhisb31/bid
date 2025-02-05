@@ -90,7 +90,7 @@ const Signup = () => {
                               className="form-outline flex-fill mb-0"
                             >
                               <label className="form-label"  htmlFor="name">
-                                Your Name :
+                                Name :
                               </label>
 
                               <input
@@ -111,7 +111,7 @@ const Signup = () => {
                               className="form-outline flex-fill mb-0"
                             >
                               <label className="form-label" htmlFor="email">
-                                Your Email :
+                                Email :
                               </label>
                               <input
                                 type="email"
