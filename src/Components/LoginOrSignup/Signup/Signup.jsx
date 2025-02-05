@@ -2,6 +2,7 @@ import "./Signup.css";
 import { NavLink } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
 import { useState } from "react";
+import {Button} from "../../Button/Button"
 const Signup = () => {
   const initialValue = {
     name :"",
@@ -185,13 +186,13 @@ const Signup = () => {
                           {error.termsAccepted && <span className="text-danger d-flex justify-content-center mb-3">{error.termsAccepted}</span>}
 
                           <div className="d-flex justify-content-center text-align-center mx-4 mb-3 mb-lg-4">
-                            <button
+                            <Button
                               type="button"
                               className="btn btn-primary btn-lg"
                               onClick={handleSubmit}
                             >
                               Register
-                            </button>
+                            </Button>
                           </div>
                         </form>
                       </div>
