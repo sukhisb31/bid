@@ -60,6 +60,7 @@ const userCustomer = (mongoose) => {
         _id: this.id,
         name: this.name,
         email: this.email,
+        user: this.userName
       },
       process.env.ACCESS_TOKEN_SECRET,
       {
@@ -68,19 +69,19 @@ const userCustomer = (mongoose) => {
     );
   };
 
-//   GENERATE REFRESH TOKEN
+  //   GENERATE REFRESH TOKEN
 
-userSchema.methods.generateRefreshToken = function(){
-    return jwt.sign({
-        _id : this.id
-    },
-    process.env.ACCESS_TOKEN_SECRET,
-    {
+  userSchema.methods.generateRefreshToken = function () {
+    return jwt.sign(
+      {
+        _id: this.id,
+      },
+      process.env.ACCESS_TOKEN_SECRET,
+      {
         expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
-    }
-)
-}
-
+      }
+    );
+  };
 
   return mongoose.model("userCustomers ", userSchema);
 };

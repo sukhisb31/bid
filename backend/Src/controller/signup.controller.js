@@ -1,6 +1,7 @@
 import {User} from "../model/signup.model";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
 const generateAccessAndRefreshTokens = async(userId) =>{
     try{
@@ -17,21 +18,35 @@ const generateAccessAndRefreshTokens = async(userId) =>{
 }
 
 // Register User
-const registerUser = asyncHandler( async(req,res)=>{
-    const {name, email, password,confirmPassword} = req.body;
-     console.log("email",email)
-    if ([name,email,password,confirmPassword].some((field)=>field ?.trim()=== "")){
-        throw new Error(400, "All field are required");
+const registerUser = async async(req,res)=>{
+   const {userName, email, password, confirmPassword} = req.body;
+   try{
+    if(!userName || !email || !password || !confirmPassword){
+        return res.status(400).json({message:"All field are required"});
     }
+    const existedUser = await User.findOne({email});
+    if(userExist){
+        return res.status(400).json({message: "This email already exist"});
+    }
+    if(password !== confirmPassword ){
+        return res.send(400).json({message:"password do not matched"});
+    }
+    const pass = await bcrypt.genPass(10);
+    const hashPassword = await bcrypt.hash(password,pass);
 
-    const existedUser = await User.findOne({
-        $or: [{email}]
+    const user  = await User.create({
+        userName,
+        email,
+        password: hashPassword,
+    });
+    res.status(201).json({
+        id: user._id,
+        userName: user.userName,
+        email: user.email
     })
-    if (existedUser){
-        throw new Error (409, "Email already existed")
-    }
 
+   }catch(err){
+    res.status (500).json({message:err.message});
+   }
+}
 
-
-
-})
