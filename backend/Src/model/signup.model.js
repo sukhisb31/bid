@@ -60,7 +60,6 @@ const userCustomer = (mongoose) => {
         _id: this.id,
         name: this.name,
         email: this.email,
-        userName: this.userName,
       },
       process.env.ACCESS_TOKEN_SECRET,
       {
