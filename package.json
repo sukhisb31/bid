@@ -1,0 +1,29 @@
+{
+  "name": "bidding",
+  "version": "1.0.0",
+  "description": "Bidding_App",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && nodemon server.js",
+    "dev": "concurrently \"npm run dev:frontend\" \"cd backend && nodemon server.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukhisb31/bid.git"
+  },
+  "author": "Sukhwinder Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sukhisb31/bid/issues"
+  },
+  "homepage": "https://github.com/sukhisb31/bid#readme",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.9"
+  }
+}

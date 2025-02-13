@@ -1,0 +1,29 @@
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.login_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    width: 35%;
+    height: 50%;
+    padding: 25px;
+    flex-direction: column;
+    margin: auto;
+    border: 2px solid gray;
+}
+.login{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* .btn{
+    width:10px;
+    height: 10px;
+} 
+  */
