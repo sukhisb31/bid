@@ -9,20 +9,20 @@ const Navbar = () => {
                     <div className="container-fluid">
                         {/* Left-Items */}
                         <div className="d-flex text-light text-decoration-none ms-4 ">
-                            <NavLink className="text-light text-decoration-none">Bidding</NavLink>
+                            <NavLink to="/" className="text-light text-decoration-none" style={{fontWeight:"600"}} >Bidding</NavLink>
                         </div>
                         {/* center-Elements */}
                         <ul className='navbar-nav d-flex flex-row '>
-                            <NavLink to="/"  className="me-4 text-light text-decoration-none">Home</NavLink>
-                            <NavLink to="/auction" className="me-4 text-light text-decoration-none">Auction</NavLink>
-                            <NavLink to="/blog" className="me-4 text-light text-decoration-none">Blog</NavLink>
-                            <NavLink to="/services" className="me-4 text-light text-decoration-none">Services</NavLink>
-                            <NavLink to="/contact" className="me-4 text-light text-decoration-none">Contact</NavLink>
+                            <NavLink to="/"  className="me-4 text-light text-decoration-none" style={{fontWeight:"600"}}>Home</NavLink>
+                            <NavLink to="/auction" className="me-4 text-light text-decoration-none" style={{fontWeight:"600"}}>Auction</NavLink>
+                            <NavLink to="/blog" className="me-4 text-light text-decoration-none" style={{fontWeight:"600"}}>Blog</NavLink>
+                            <NavLink to="/services" className="me-4 text-light text-decoration-none" style={{fontWeight:"600"}}>Services</NavLink>
+                            <NavLink to="/contact" className="me-4 text-light text-decoration-none" style={{fontWeight:"600"}}>Contact</NavLink>
                         </ul>
 
                         {/* Right-Items */}
                         <ul className='navbar-nav d-flex nav-item'>
-                            <NavLink to="/login" className="text-light text-decoration-none me-4">Login</NavLink>
+                            <NavLink to="/login" className="text-light text-decoration-none me-4" style={{fontWeight:"600"}}>Login</NavLink>
                         </ul>
                     </div>
                 </nav>
