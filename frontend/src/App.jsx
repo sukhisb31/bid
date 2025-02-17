@@ -9,6 +9,7 @@ import Signup from './Components/LoginOrSignup/Signup/Signup'
 import Blog from './Components/Pages/Blog/Blog'
 import Services from './Components/Pages/Services/Services'
 import Contact from './Components/Pages/Contact/Contact'
+import Furniture from './Components/Pages/BidProducts/Furniture'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path='/blog' element={<Blog/>}/>
             <Route path="/services" element={<Services/>} />
             <Route path='/contact' element={<Contact/>} />
+            <Route path='/furniture' element={<Furniture/>} />
         </Routes>
       </BrowserRouter>
     </>

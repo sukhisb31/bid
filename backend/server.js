@@ -2,8 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const router =  express.Router();
+const cors = require("cors");
+
 // const myRoute = require("./Src/routes/userRoute")
-const {myRouter} = require("./Src/routes/userRoute")
+const {myRouter} = require("./Src/routes/userRoute");
 dotenv.config();
 
 // Db Server 
@@ -19,9 +21,17 @@ const connectToDb = async() =>{
 }
 connectToDb();
 
+
 // server created and connection
 const app = express();
 app.use(express.json());
+app.use(
+    cors({
+        origin : process.env.FRONTEND_URL,
+        methods : ["POST", "GET", "PUT", "DELETE"],
+        credentials : true,
+    })
+)
 
 app.use(router);
 // app.use("/api/user",userRoutes(router));
